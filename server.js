@@ -4,7 +4,7 @@ const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
-const All = require('./routes/all');
+const AllRoutes = require('./routes/all');
 
 mongoose.connect(
   "mongodb+srv://mongodb:i6QpsrcM04zFhSKQ@leadsgenerationonline.yg2ys.mongodb.net/leadsgenerationonlinedatabase?retryWrites=true&w=majority",
@@ -39,10 +39,10 @@ app.get("/", (req, res) => {
   res.send("<h1>SERVER</h1>");
 });
 
-const PORT = process.env.port || 5000;
+const PORT = 5968;
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 
-app.use('/api/all',All);
+app.use('/api/all',AllRoutes);
