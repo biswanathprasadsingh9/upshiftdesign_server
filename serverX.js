@@ -3,15 +3,13 @@ const mongoose = require("mongoose");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const result = require("dotenv").config();
-var path = require("path");
 
+// const AllRoutes = require('./routes/all');
 
-
-mongoose.connect(process.env.MONGODB, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(
+  "mongodb+srv://mongodb:i6QpsrcM04zFhSKQ@leadsgenerationonline.yg2ys.mongodb.net/leadsgenerationonlinedatabase?retryWrites=true&w=majority",
+  { useNewUrlParser: true, useUnifiedTopology: true }
+);
 const db = mongoose.connection;
 
 db.on("error", (err) => {
@@ -21,11 +19,6 @@ db.on("error", (err) => {
 db.once("open", () => {
   console.log("Successfully Connected.");
 });
-
-
-
-// console.log(result.parsed);
-// console.log(process.env.EMAIL_USER);
 
 const app = express();
 app.use(morgan("dev"));
@@ -43,19 +36,22 @@ app.use(function (req, res, next) {
 });
 
 app.get("/", (req, res) => {
-  res.send("<h1>Qtonix CRM SERVER</h1>");
+  res.send("<h1>SERVER</h1>");
+});
+
+const PORT = 5000;
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
 
 
+// app.listen(process.env.PORT || 5000, function () {
+//   console.log(
+//     "Express server listening on port %d in %s mode",
+//     this.address().port,
+//     app.settings.env
+//   );
+// });
 
-
-
-
-
-app.listen(process.env.PORT || 5000, function () {
-  console.log(
-    "Express server listening on port %d in %s mode",
-    this.address().port,
-    app.settings.env
-  );
-});
+// app.use('/api/all',AllRoutes);
