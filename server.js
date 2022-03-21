@@ -39,19 +39,19 @@ app.get("/", (req, res) => {
   res.send("<h1>SERVER</h1>");
 });
 
-// const PORT = 5000;
-//
-// app.listen(PORT, () => {
-//   console.log(`Server is running on port ${PORT}`);
-// });
+const PORT = 5000;
 
-
-app.listen(process.env.PORT || 5000, function () {
-  console.log(
-    "Express server listening on port %d in %s mode",
-    this.address().port,
-    app.settings.env
-  );
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
+
+
+// app.listen(process.env.PORT || 5000, function () {
+//   console.log(
+//     "Express server listening on port %d in %s mode",
+//     this.address().port,
+//     app.settings.env
+//   );
+// });
 
 // app.use('/api/all',AllRoutes);
