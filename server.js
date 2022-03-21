@@ -4,7 +4,7 @@ const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
-const AllRoutes = require('./routes/all');
+// const AllRoutes = require('./routes/all');
 
 mongoose.connect(
   "mongodb+srv://mongodb:i6QpsrcM04zFhSKQ@leadsgenerationonline.yg2ys.mongodb.net/leadsgenerationonlinedatabase?retryWrites=true&w=majority",
@@ -45,4 +45,4 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 
-app.use('/api/all',AllRoutes);
+// app.use('/api/all',AllRoutes);
